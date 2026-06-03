@@ -12,6 +12,7 @@ import lombok.*;
 public class Alerta {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_alerta")
     private Long idAlerta;
 

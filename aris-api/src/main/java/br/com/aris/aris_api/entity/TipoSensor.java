@@ -12,6 +12,7 @@ import lombok.*;
 public class TipoSensor {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tipo")
     private Long idTipo;
 

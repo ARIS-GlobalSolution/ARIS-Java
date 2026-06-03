@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class Telemetria {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_telemetria")
     private Long idTelemetria;
 

@@ -12,6 +12,7 @@ import lombok.*;
 public class ParametrosCultura {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_parametro")
     private Long idParametro;
 
