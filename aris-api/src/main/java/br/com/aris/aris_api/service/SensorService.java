@@ -30,9 +30,4 @@ public class SensorService {
     public void deletar(Long id) {
         repository.deleteById(id);
     }
-
-    public Sensores atualizar(Long id, Sensores sensor) {
-
-        return sensor;
-    }
 }
