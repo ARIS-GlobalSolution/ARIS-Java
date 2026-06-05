@@ -12,7 +12,6 @@ import lombok.*;
 public class Irrigacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_irrigacao")
     private Long idIrrigacao;
 

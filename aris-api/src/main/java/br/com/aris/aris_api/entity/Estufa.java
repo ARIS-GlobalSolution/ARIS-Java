@@ -18,7 +18,8 @@ public class Estufa {
 
     private String nome;
 
-    private String localizacao;
+    @Embedded
+    private Localizacao localizacao;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")

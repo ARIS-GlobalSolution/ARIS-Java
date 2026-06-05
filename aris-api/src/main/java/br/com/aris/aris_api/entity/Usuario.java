@@ -2,7 +2,8 @@ package br.com.aris.aris_api.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -13,17 +14,22 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Usuario {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long idUsuario;
 
-    private String nome;
-
-    private String email;
-
-    private String senha;
-
     @Column(name = "data_cadastro")
     private LocalDate dataCadastro;
+
+    @NotBlank
+    private String nome;
+
+    @NotBlank
+    @Email
+    private String email;
+
+    @NotBlank
+    private String senha;
 }

@@ -8,10 +8,12 @@ public record UsuarioRequestDTO(
         @NotBlank
         String nome,
 
+        @NotBlank
         @Email
         String email,
 
         @NotBlank
         String senha
 
-) {}
+) {
+}

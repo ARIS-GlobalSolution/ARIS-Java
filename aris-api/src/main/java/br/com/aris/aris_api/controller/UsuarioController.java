@@ -1,7 +1,10 @@
 package br.com.aris.aris_api.controller;
 
+import br.com.aris.aris_api.dto.UsuarioRequestDTO;
+import br.com.aris.aris_api.dto.UsuarioResponseDTO;
 import br.com.aris.aris_api.entity.Usuario;
 import br.com.aris.aris_api.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,14 +28,16 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public Usuario salvar(@RequestBody Usuario usuario) {
-        return service.salvar(usuario);
+    public UsuarioResponseDTO salvar(
+            @Valid @RequestBody UsuarioRequestDTO dto) {
+
+        return service.salvar(dto);
     }
 
     @PutMapping("/{id}")
     public Usuario atualizar(
             @PathVariable Long id,
-            @RequestBody Usuario usuario) {
+            @Valid @RequestBody Usuario usuario) {
 
         return service.atualizar(id, usuario);
     }

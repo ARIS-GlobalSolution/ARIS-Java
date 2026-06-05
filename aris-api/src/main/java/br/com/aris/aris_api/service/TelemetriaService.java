@@ -29,4 +29,9 @@ public class TelemetriaService {
     public void deletar(Long id) {
         repository.deleteById(id);
     }
+
+    public Telemetria atualizar(Long id, Telemetria telemetria) {
+
+        return telemetria;
+    }
 }

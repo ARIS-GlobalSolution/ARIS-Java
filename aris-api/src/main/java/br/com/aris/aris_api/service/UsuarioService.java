@@ -1,10 +1,13 @@
 package br.com.aris.aris_api.service;
 
+import br.com.aris.aris_api.dto.UsuarioRequestDTO;
+import br.com.aris.aris_api.dto.UsuarioResponseDTO;
 import br.com.aris.aris_api.entity.Usuario;
 import br.com.aris.aris_api.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,19 +25,34 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
     }
 
-    public Usuario salvar(Usuario usuario) {
-        return repository.save(usuario);
+    public UsuarioResponseDTO salvar(UsuarioRequestDTO dto) {
+
+        Usuario usuario = new Usuario();
+
+        usuario.setNome(dto.nome());
+        usuario.setEmail(dto.email());
+        usuario.setSenha(dto.senha());
+        usuario.setDataCadastro(LocalDate.now());
+
+        Usuario salvo = repository.save(usuario);
+
+        return new UsuarioResponseDTO(
+                salvo.getIdUsuario(),
+                salvo.getNome(),
+                salvo.getEmail(),
+                salvo.getDataCadastro()
+        );
     }
 
     public Usuario atualizar(Long id, Usuario usuario) {
 
-        Usuario existente = buscarPorId(id);
+        Usuario usuarioExistente = buscarPorId(id);
 
-        existente.setNome(usuario.getNome());
-        existente.setEmail(usuario.getEmail());
-        existente.setSenha(usuario.getSenha());
+        usuarioExistente.setNome(usuario.getNome());
+        usuarioExistente.setEmail(usuario.getEmail());
+        usuarioExistente.setSenha(usuario.getSenha());
 
-        return repository.save(existente);
+        return repository.save(usuarioExistente);
     }
 
     public void deletar(Long id) {
