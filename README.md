@@ -165,14 +165,6 @@ Password:
 
 https://github.com/ARIS-GlobalSolution/ARIS-Java.git
 
-### Deploy
-
-COLOCAR_LINK_DEPLOY
-
-### Documentação Swagger
-
-COLOCAR_LINK_SWAGGER_PUBLICO
-
 ### Vídeo de Apresentação
 
 COLOCAR_LINK_VIDEO
