@@ -32,4 +32,6 @@ public class Usuario {
 
     @NotBlank
     private String senha;
+
+
 }
