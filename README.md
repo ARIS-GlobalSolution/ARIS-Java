@@ -165,9 +165,13 @@ Password:
 
 https://github.com/ARIS-GlobalSolution/ARIS-Java.git
 
+### SWAGGER
+
+http://localhost:8081/swagger-ui/index.html
+
 ### Vídeo de Apresentação
 
-COLOCAR_LINK_VIDEO
+https://youtu.be/1BuaIXa2yRc
 
 ### Pitch
 
