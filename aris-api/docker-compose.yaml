@@ -7,13 +7,16 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: aris-java-api
+    restart: always
     ports:
-      - "8081:8081"
+      - "8081:8080"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://aris-db:5432/aris_database
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=senha_super_segura
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
     depends_on:
       aris-db:
         condition: service_started
