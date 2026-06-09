@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: aris-java-api
+    container_name: aris-java-api-rm566059
     restart: always
     ports:
       - "8081:8080"
@@ -25,7 +25,7 @@ services:
 
   aris-db:
     image: postgres:15-alpine
-    container_name: aris-postgres
+    container_name: aris-postgres-rm566059
     restart: always
     environment:
       POSTGRES_DB: aris_database
