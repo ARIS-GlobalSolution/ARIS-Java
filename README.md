@@ -175,7 +175,7 @@ https://youtu.be/1BuaIXa2yRc
 
 ### Pitch
 
-COLOCAR_LINK_PITCH
+https://youtu.be/Ph5_hcT_nvc?si=FXuR3ZlhkW_xfbaU
 
 ---
 
