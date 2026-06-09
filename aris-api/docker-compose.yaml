@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+
+  aris-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aris-java-api
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://aris-db:5432/aris_database
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=senha_super_segura
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      aris-db:
+        condition: service_started
+    networks:
+      - aris-network
+
+  aris-db:
+    image: postgres:15-alpine
+    container_name: aris-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: aris_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: senha_super_segura
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - aris-network
+
+networks:
+  aris-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
